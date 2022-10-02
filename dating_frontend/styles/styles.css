@@ -93,7 +93,62 @@
     margin-bottom: 2vh;
 } */
 
+.signup-btn{
+    background: none;
+    border: none;
+    margin-top: 1vh;
+}
 
+.popup{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,50%);
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* .hide{
+    display: none;
+} */
+
+.signup{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    /* height: 60vh; */
+    width: 25vw;
+    background-color:#FFF7F7;
+    padding: 2vh 3vw;
+}
+
+.signup-input{
+    width: 100%;
+    margin: 1vh 0 4vh 0;
+    padding: 1vh 0;
+    border-radius: 10px;
+}
+
+.signup-h3{
+    margin: 3vh 0;
+    color: #FF607D;
+}
+
+.profile-pic-container{
+    border-radius: 100%;
+    height: 30vh;
+    width: 30vh;
+}
+
+.profile-pic{
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+}
 
 
 
