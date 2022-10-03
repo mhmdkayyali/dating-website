@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('chats', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table-> foreignId("user_id")->nullable()->constrained("id")->on('users');
+            $table-> foreignId("reciever_id")->nullable()->constrained("id")->on('users');
+            $table->string('chat_content');
+            $table->timestamp('time');
         });
     }
 

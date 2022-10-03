@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('location');
             $table->string('profile_picture');
             $table->string('bio');
+            $table->boolean('visible')->default(1);
         });
     }
 

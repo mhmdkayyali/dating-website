@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('blocks', function (Blueprint $table) {
-            $table-> foreign("blocker_id")->references("id")->on('users');
-            $table-> foreign("blocked_id")->references("id")->on('users');
+            $table-> foreignId("blocker_id")->nullable()->constrained("id")->on('users');
+            $table-> foreignId("blocked_id")->nullable()->constrained("id")->on('users');
         });
     }
 
