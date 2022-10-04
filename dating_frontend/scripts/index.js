@@ -42,10 +42,20 @@ dating_pages.loadFor = (page) => {
 }
 
 dating_pages.load_registration = async () => {
-    const landing_url = `${dating_pages.baseURL}/landing`;
-    const response_landing = await dating_pages.getAPI(landing_url);
-    dating_pages.Console("Testing Products API", response_landing.data.data);
+    const registration_url = `${dating_pages.baseURL}/login`;
+    const response_registration = await dating_pages.getAPI(registration_url);
+    dating_pages.Console("Testing API", response_registration.data.data);
 
+    const signup = document.getElementById("signup");
+    const exit_btn = document.getElementById("x-btn");
+    const popup = document.getElementById("popup")
+
+    const login_signup_toggle = () => {
+        popup.classList.toggle("hide")
+    }
+
+    signup.addEventListener("click", login_signup_toggle);
+    exit_btn.addEventListener("click", login_signup_toggle);
 
 }
 
