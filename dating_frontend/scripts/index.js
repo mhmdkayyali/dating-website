@@ -61,7 +61,7 @@ dating_pages.load_registration = async () => {
     signup-popup.addEventListener("click", login_signup_toggle);
     exit_btn.addEventListener("click", login_signup_toggle);
     login.addEventListener("click", async () => {
-        if(email_input != "" && password_input != "") {
+        if(email_input.value != "" && password_input.value != "") {
             const login_data = new URLSearchParams();
             login_data.append("email", email_input.value);
             login_data.append("password", password_input.value);
