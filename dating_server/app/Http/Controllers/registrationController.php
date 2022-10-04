@@ -37,7 +37,7 @@ class RegistrationController extends Controller{
                 "interest" => $request->interest,
                 "age" => $request->age,
                 "password" => $request->password,
-                "location" => $request->location,
+                "location" => $request->location
                 ]);
                 if ($signup->save()){
                     return response()->json([
