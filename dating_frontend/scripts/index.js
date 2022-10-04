@@ -42,20 +42,40 @@ dating_pages.loadFor = (page) => {
 }
 
 dating_pages.load_registration = async () => {
-    const registration_url = `${dating_pages.baseURL}/login`;
-    const response_registration = await dating_pages.getAPI(registration_url);
-    dating_pages.Console("Testing API", response_registration.data.data);
+    console.log("hi")
+    const registration_url = `${dating_pages.baseURL}login`;
+    // const response_registration = await dating_pages.getAPI(registration_url);
 
-    const signup = document.getElementById("signup");
+    const signup = document.getElementById("signup-popup");
     const exit_btn = document.getElementById("x-btn");
-    const popup = document.getElementById("popup")
+    const popup = document.getElementById("popup");
+    const login = document.getElementById("login");
+    const email_input = document.getElementById("email-input");
+    const password_input = document.getElementById("password-input");
 
     const login_signup_toggle = () => {
         popup.classList.toggle("hide")
     }
 
-    signup.addEventListener("click", login_signup_toggle);
+    signup-popup.addEventListener("click", login_signup_toggle);
     exit_btn.addEventListener("click", login_signup_toggle);
+    login.addEventListener("click", async () => {
+        if(email_input != "" && password_input != "") {
+            const login_data = new URLSearchParams();
+            login_data.append("email", email_input.value);
+            login_data.append("password", password_input.value);
+
+            const response = await dating_pages.postAPI(registration_url, login_data);
+
+            if(response.data.status == "Success") {
+                window.location.href="./home.html";
+            }else {
+                parag.window.innerHTML="Incorrect username and/or password";
+            }
+        } else {
+            parag.window.innerHTML="Fill all fields required";
+        }
+    })
 
 }
 
