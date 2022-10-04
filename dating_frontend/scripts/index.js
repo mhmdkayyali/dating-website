@@ -52,6 +52,7 @@ dating_pages.load_registration = async () => {
     const login = document.getElementById("login");
     const email_input = document.getElementById("email-input");
     const password_input = document.getElementById("password-input");
+    const parag = document.getElementById("parag");
 
     const login_signup_toggle = () => {
         popup.classList.toggle("hide")
@@ -70,10 +71,10 @@ dating_pages.load_registration = async () => {
             if(response.data.status == "Success") {
                 window.location.href="./home.html";
             }else {
-                parag.window.innerHTML="Incorrect username and/or password";
+                parag.innerHTML="Incorrect username and/or password";
             }
         } else {
-            parag.window.innerHTML="Fill all fields required";
+            parag.innerHTML="Fill all fields required";
         }
     })
 
