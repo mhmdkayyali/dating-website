@@ -25,26 +25,35 @@ class RegistrationController extends Controller{
     }
 
     function signup(Request $request) {
-
-        $signup = User::create([
-            "full_name" => $request->full_name,
-            "email" =>$request->username,
-            "gender" => $request->password,
-            "interest" => $request->age,
-            "age" => $request->gender,
-            "password" => $request->interested,
-            "location" => $request->location,
-            "profile_picture" => $request->profile_picture
+        $email = User::select("email")
+                        ->where("email", $request->email)
+                        ->get();
+        
+        if($email->isEmpty()) {  
+            $signup = User::create([
+                "full_name" => $request->full_name,
+                "email" =>$request->username,
+                "gender" => $request->password,
+                "interest" => $request->age,
+                "age" => $request->gender,
+                "password" => $request->interested,
+                "location" => $request->location,
+                "profile_picture" => $request->profile_picture
+                ]);
+                if ($signup->save()){
+                    return response()->json([
+                        "Status"=>"Success"
+                    ]);
+                } else{
+                    return response()->json([
+                        "Status"=>"Failed"
+                    ]);
+                }
+        }else{
+            return response()->json([
+                "Status"=>"Failed"
             ]);
-            if ($signup->save()){
-                return response()->json([
-                    "Status"=>"Success"
-                ]);
-            } else{
-                return response()->json([
-                    "Status"=>"Failed"
-                ]);
-            }
+        }
     }
 
 }
