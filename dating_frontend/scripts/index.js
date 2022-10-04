@@ -89,7 +89,7 @@ dating_pages.load_registration = async () => {
     })
 
     sign_up.addEventListener("click", async () => {
-        if(full_name.value != "" && email.value != "" && gender != "" && interest.value != "" && age.value != "" && password.value != "" && location.value != "" && profile_picture.value) {
+        if(full_name.value != "" && email.value != "" && gender != "" && interest.value != "" && age.value != "" && password.value != "" && location.value != "") {
             const signup_data = new URLSearchParams();
             signup_data.append("full_name", full_name.value);
             signup_data.append("email ", email .value);
