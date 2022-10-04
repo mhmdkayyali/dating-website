@@ -7,7 +7,8 @@ use App\Http\Controllers\RegistrationController;
 
 // Route::group(["prefix"=> "v1"], function(){
 
-Route::post("/login", [RegistrationController::class, "login"])->name("login"); 
+Route::post("/login", [RegistrationController::class, "login"])->name("login");
+Route::post("/signup", [RegistrationController::class, "signup"])->name("signup"); 
         
 // });
 
