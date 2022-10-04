@@ -32,13 +32,12 @@ class RegistrationController extends Controller{
         if($email->isEmpty()) {  
             $signup = User::create([
                 "full_name" => $request->full_name,
-                "email" =>$request->username,
-                "gender" => $request->password,
-                "interest" => $request->age,
-                "age" => $request->gender,
-                "password" => $request->interested,
+                "email" =>$request->email,
+                "gender" => $request->gender,
+                "interest" => $request->interest,
+                "age" => $request->age,
+                "password" => $request->password,
                 "location" => $request->location,
-                "profile_picture" => $request->profile_picture
                 ]);
                 if ($signup->save()){
                     return response()->json([
