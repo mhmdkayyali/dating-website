@@ -92,7 +92,7 @@ dating_pages.load_registration = async () => {
         if(full_name.value != "" && email.value != "" && gender != "" && interest.value != "" && age.value != "" && password.value != "" && location.value != "") {
             const signup_data = new URLSearchParams();
             signup_data.append("full_name", full_name.value);
-            signup_data.append("email ", email .value);
+            signup_data.append("email ", email.value);
             signup_data.append("gender", gender.value);
             signup_data.append("interest", interest.value);
             signup_data.append("age", age.value);
@@ -100,7 +100,7 @@ dating_pages.load_registration = async () => {
             signup_data.append("location", location.value);
 
             const response = await dating_pages.postAPI(registration_url, signup_data);
-        
+            console.log(response)
             if(response.data.status == "Success") {
                 window.location.href="./home.html";
             }else {
