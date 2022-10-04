@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('profile_picture')->nullable();
             $table->string('bio')->nullable();
             $table->boolean('visible')->default(1);
+            $table->timestamps();
         });
     }
 
