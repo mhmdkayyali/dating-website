@@ -98,7 +98,6 @@ dating_pages.load_registration = async () => {
             signup_data.append("age", age.value);
             signup_data.append("password", password.value);
             signup_data.append("location", location.value);
-            signup_data.append("profile_picture", profile_picture.value);
 
             const response = await dating_pages.postAPI(registration_url, signup_data);
         
