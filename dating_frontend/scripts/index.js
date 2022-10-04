@@ -46,22 +46,32 @@ dating_pages.load_registration = async () => {
     const registration_url = `${dating_pages.baseURL}login`;
     // const response_registration = await dating_pages.getAPI(registration_url);
 
-    const signup = document.getElementById("signup-popup");
+    const signup_popup = document.getElementById("signup-popup");
     const exit_btn = document.getElementById("x-btn");
     const popup = document.getElementById("popup");
     const login = document.getElementById("login");
     const email_input = document.getElementById("email-input");
     const password_input = document.getElementById("password-input");
     const parag = document.getElementById("parag");
+    const full_name = document.getElementById("full-name");
+    const email = document.getElementById("email");
+    const age = document.getElementById("age");
+    const password = document.getElementById("password");
+    const gender = document.getElementById("gender");
+    const interest = document.getElementById("interest");
+    const location = document.getElementById("location");
+    const sign_up = document.getElementById("sign-up");
+    const signup_h3 = document.getElementById("signup-h3")
+    
 
     const login_signup_toggle = () => {
         popup.classList.toggle("hide")
     }
 
-    signup-popup.addEventListener("click", login_signup_toggle);
+    signup_popup.addEventListener("click", login_signup_toggle);
     exit_btn.addEventListener("click", login_signup_toggle);
     login.addEventListener("click", async () => {
-        if(email_input != "" && password_input != "") {
+        if(email_input.value != "" && password_input.value != "") {
             const login_data = new URLSearchParams();
             login_data.append("email", email_input.value);
             login_data.append("password", password_input.value);
@@ -77,6 +87,33 @@ dating_pages.load_registration = async () => {
             parag.innerHTML="Fill all fields required";
         }
     })
+
+    sign_up.addEventListener("click", async () => {
+        if(full_name.value != "" && email.value != "" && gender != "" && interest.value != "" && age.value != "" && password.value != "" && location.value != "" && profile_picture.value) {
+            const signup_data = new URLSearchParams();
+            signup_data.append("full_name", full_name.value);
+            signup_data.append("email ", email .value);
+            signup_data.append("gender", gender.value);
+            signup_data.append("interest", interest.value);
+            signup_data.append("age", age.value);
+            signup_data.append("password", password.value);
+            signup_data.append("location", location.value);
+            signup_data.append("profile_picture", profile_picture.value);
+
+            const response = await dating_pages.postAPI(registration_url, signup_data);
+        
+            if(response.data.status == "Success") {
+                window.location.href="./home.html";
+            }else {
+                signup_h3.innerHTML="An account with this email already exists, please use another one.";
+            } 
+        }else{
+            signup_h3.innerHTML="Fill all fields required";
+        }
+    })
+
+
+
 
 }
 
