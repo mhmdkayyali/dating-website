@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer('age');
             $table->string('password');
             $table->string('location');
-            $table->string('profile_picture');
-            $table->string('bio');
+            $table->string('profile_picture')->nullable();
+            $table->string('bio')->nullable();
             $table->boolean('visible')->default(1);
         });
     }
