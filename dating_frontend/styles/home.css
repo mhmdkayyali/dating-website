@@ -65,3 +65,46 @@ body{
     margin-bottom: 10px;
     font-family: "DancingScript-Regular";
 }
+
+.card{
+    display: flex;
+    height: 30vh;
+    min-width: 400px;
+    margin: 15px 0;
+    background-color: #007F8B;
+}
+
+.profile-pic{
+    width: 40%;
+    /* background-color: #FF607D; */
+}
+
+.profile-img{
+    margin: 7px 7px;
+    height: 75%;
+    width: 90%;
+    background-color: #FFFFFF;
+}
+
+i{
+    color:#FFFFFF;
+    cursor: pointer;
+}
+
+.fav-info{
+    display: flex;
+    justify-content: space-around;
+}
+
+.more-info{
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.info{
+    margin: 10px 0 10px 10px;
+    cursor: pointer;
+    /* font-family: "barlow-regular"; */
+    color: #FFFFFF;
+}
