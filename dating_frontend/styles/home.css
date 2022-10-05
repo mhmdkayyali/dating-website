@@ -1,0 +1,114 @@
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "barlow-regular";
+}
+
+@font-face {
+    font-family: "barlow-bold";
+    src: url("../assets/fonts/barlow.bold");
+}
+
+@font-face {
+    font-family: "barlow-regular";
+    src: url("../assets/fonts/barlow.regular.ttf");}
+
+@font-face {
+    font-family: "DancingScript-Regular";
+    src: url("../assets/fonts/DancingScript-Regular.otf");}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    background-color: #007F8B;
+}
+
+.logo-img{
+    height: 80%;
+    margin: 10px 0 10px 10px;
+    border-radius: 10px;
+}
+
+.links{
+    color: #FFFFFF;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.links > li {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.home-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.header{
+    color: #FF607D;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: "DancingScript-Regular";
+}
+
+.card{
+    display: flex;
+    height: 30vh;
+    min-width: 400px;
+    margin: 15px 0;
+    background-color: #007F8B;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px gray;
+}
+
+.profile-pic{
+    width: 40%;
+    /* background-color: #FF607D; */
+}
+
+.profile-img{
+    margin: 7px 7px;
+    height: 75%;
+    width: 90%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+i{
+    color:#FFFFFF;
+    cursor: pointer;
+}
+
+.fav-info{
+    display: flex;
+    justify-content: space-around;
+}
+
+.more-info{
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.info{
+    margin: 10px 0 10px 10px;
+    cursor: pointer;
+    /* font-family: "barlow-regular"; */
+    color: #FFFFFF;
+}

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('favorites', function (Blueprint $table) {
             $table-> foreignId("user_id")->nullable()->constrained("id")->on('users');
             $table-> foreignId("favorated_id")->nullable()->constrained("id")->on('users');
+            $table->timestamps();
         });
     }
 
