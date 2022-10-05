@@ -39,7 +39,6 @@ dating_pages.loadFor = (page) => {
 };
 
 dating_pages.load_registration = async () => {
-  console.log("hi");
   const registration_url = `${dating_pages.baseURL}login`;
   // const response_registration = await dating_pages.getAPI(registration_url);
 
@@ -75,6 +74,8 @@ dating_pages.load_registration = async () => {
       const response = await dating_pages.postAPI(registration_url, login_data);
 
       if (response.data.status == "Success") {
+
+
         localStorage.setItem("email", email_input.value);
         localStorage.setItem("interest", response.data.interest);
         window.location.href = "./home.html";
@@ -125,28 +126,49 @@ dating_pages.load_registration = async () => {
 dating_pages.load_home = async () => {
   const home_url = `${dating_pages.baseURL}feed`;
 
+
+
+
   const feed_data = new URLSearchParams();
+  const favorite_url = `${dating_pages.baseURL}favorite`;
+  
 
   feed_data.append("email", localStorage.getItem("email"));
   feed_data.append("interest", localStorage.getItem("interest"));
   const response = await dating_pages.postAPI(home_url, feed_data);
   const home_content = document.getElementById("home-content")
-  console.log(response)
   for(let i =0; i < response.data.response.length; i++){
     home_content.innerHTML+=`<div id="card" class="card">
     <div class="profile-pic">
     <img class="profile-img" src="./assets/images/dating.jpeg" alt="">
     <div class="fav-info">
         <p class="more-info">More info</p>
-        <i class="fa fa-heart"></i>
+        <i class="fa fa-heart fav"></i>
     </div>
-</div>
-<div class="info">
-    <p class="info">Name: ${response.data.response[i].full_name}</p>
-    <p class="info">Age: ${response.data.response[i].age}</p>
-    <p class="info">Location: ${response.data.response[i].location}</p>
-</div></div>`
+    </div>
+    <div class="info">
+        <p class="info">Name: ${response.data.response[i].full_name}</p>
+        <p class="info">Age: ${response.data.response[i].age}</p>
+        <p class="info">Location: ${response.data.response[i].location}</p>
+    </div></div>`
   }
+  const fav = document.querySelectorAll(".fav");
+  fav.forEach(j=>{
+    j.addEventListener("click", async () => {
+        const favorite_data = new URLSearchParams();
+
+        favorite_data.append("email",localStorage.getItem("email"));
+        const response = await dating_pages.postAPI(favorite_url, favorite_data);
+    })
+  })
+    
+    
+
+
 };
+    
+
+
+    
 
 dating_pages.load_products = () => {};
