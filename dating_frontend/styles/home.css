@@ -32,8 +32,9 @@ body{
 }
 
 .logo-img{
-    height: 100%;
-    padding: 10px 0 10px 10px;
+    height: 80%;
+    margin: 10px 0 10px 10px;
+    border-radius: 10px;
 }
 
 .links{
@@ -72,6 +73,8 @@ body{
     min-width: 400px;
     margin: 15px 0;
     background-color: #007F8B;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px gray;
 }
 
 .profile-pic{
@@ -84,6 +87,7 @@ body{
     height: 75%;
     width: 90%;
     background-color: #FFFFFF;
+    border-radius: 10px;
 }
 
 i{
