@@ -21,14 +21,38 @@ class HomeController extends Controller{
         ]);
     }
 
-    function addFavorites(Request $request, $id = "add") {
+    function addFavorites(Request $request) {
+        $check_favorates = Favorite::select("user_id", "favorated_id")
+                                        ->where("user_id",$request->user_id)
+                                        ->where("favorated_id",$request->fav_id)
+                                        ->get();
+        if($check_favorates->isEmpty()) {
+            $insert_fav = Favorite::create([
+                "user_id" => $request->user_id,
+                "favorated_id" => $request->fav_id
+            ]);
+            $insert_fav->save();
+            return response()->json([
+                "Response"=>"Added"
+            ]);
+        }else{
+            $check_favorates = Favorite::select("user_id", "favorated_id")
+                                        ->where("user_id",$request->user_id)
+                                        ->where("favorated_id",$request->fav_id)
+                                        ->delete();
+            return response()->json([
+                "Response"=>"removed"]);
+        }
         
+        
+        
+        // return response()->json([
+        //     "Response"=>"Success",
+        //     "hi"=>$insert_fav,
+        //     "bye"=>$check_favorates
+        // ]);
     
     }
-
-
-
-
 
 
 }

@@ -11,7 +11,7 @@ use App\Http\Controllers\HomeController;
 Route::post("/login", [RegistrationController::class, "login"])->name("login");
 Route::post("/signup", [RegistrationController::class, "signup"])->name("signup");
 Route::post("/feed", [HomeController::class, "feed"])->name("feed"); 
-Route::post("/favorite/{id?}", [HomeController::class, "addOrGetFavorites"])->name("add-favorite");// });
+Route::post("/favorite", [HomeController::class, "addFavorites"])->name("add-favorite");// });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
