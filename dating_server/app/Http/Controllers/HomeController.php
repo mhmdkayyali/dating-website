@@ -8,46 +8,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller{
     function feed(Request $request) {
-        $myId = $request->my_id;
-        $myInterest = $request->my_interest;
-        $interested_id = User::select("id", "full_name")
+        $myEmail = $request->email;
+        $myInterest = $request->interest;
+        $interested_in = User::select("id", "full_name", "age", "location")
                                 ->where("gender", $myInterest)
+                                ->where("email", "!=", $myEmail)
                                 ->get();
                                 
         return response()->json([
             "Status" => "Success",
-            "response" => $interested_id
+            "response" => $interested_in
         ]);
     }
 
-    function addOrGetFavorites(Request $request, $id = "add") {
-        if($id == "add") {
-            $favorite = new Favorite;
-        }else {
-            $favorite = Favorite::select($id);
-        }
-
-        $favorite->id = $request->id ? $request->id : $favorite->id;
-        // $favorite->category_id = $request->category_id? $request->category_id : $favorite->category_id;
-        if($favorite->save()){
-            return response()->json([
-                "status" => "Success",
-                "data" => $favorite
-            ]);
-        }
-
-        return response()->json([
-            "status" => "Error",
-            "data" => "Error creating a model"
-        ]);
+    function addFavorites(Request $request, $id = "add") {
+        
     
     }
-
-
-
-
-
-
 
 
 

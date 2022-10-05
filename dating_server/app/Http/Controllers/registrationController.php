@@ -16,7 +16,8 @@ class RegistrationController extends Controller{
             ->get();
         if (!$login->isEmpty()) {
             return response()->json([
-                "status" => "Success"
+                "status" => "Success",
+                "interest" => $login[0]->interest
             ]);
         }
         return response()->json([
