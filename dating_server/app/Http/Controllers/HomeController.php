@@ -47,20 +47,26 @@ class HomeController extends Controller{
     }
 
     function block(Request $request) {
-        // $check_favorates = Favorite::select("user_id", "favorated_id")
-        //                                 ->where("user_id",$request->user_id)
-        //                                 ->where("favorated_id",$request->fav_id)
-        //                                 ->get();
-        // if($check_favorates->isEmpty()) {
-            $insert_delete = Block::create([
-                "blocker_id" => $request->blocker_id,
-                "blocked_id" => $request->blocked_id
-            ]);
-            $insert_delete->save();
-            return response()->json([
-                "Response"=>"blocked"
-            ]);
-        }
+        $insert_delete = Block::create([
+            "blocker_id" => $request->blocker_id,
+            "blocked_id" => $request->blocked_id
+        ]);
+        $insert_delete->save();
+        return response()->json([
+            "Response"=>"blocked"
+        ]);
+    }
 
+    function view(Request $request) {
+        $id = $request->id;
+        $view = User::select("*")
+                        ->where("id", $id)
+                        ->get();
+                                
+        return response()->json([
+            "Status" => "Success",
+            "response" => $view
+        ]);
+    }
 
 }
