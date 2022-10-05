@@ -12,7 +12,7 @@ Route::post("/login", [RegistrationController::class, "login"])->name("login");
 Route::post("/signup", [RegistrationController::class, "signup"])->name("signup");
 Route::post("/feed", [HomeController::class, "feed"])->name("feed"); 
 Route::post("/favorite", [HomeController::class, "addFavorites"])->name("add-favorite");// });
-
+Route::post("/block", [HomeController::class, "block"])->name("block");
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });

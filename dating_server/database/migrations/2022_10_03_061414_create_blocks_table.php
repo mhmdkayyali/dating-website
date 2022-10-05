@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('blocks', function (Blueprint $table) {
             $table-> foreignId("blocker_id")->nullable()->constrained("id")->on('users');
             $table-> foreignId("blocked_id")->nullable()->constrained("id")->on('users');
+            $table->timestamps();
         });
     }
 
