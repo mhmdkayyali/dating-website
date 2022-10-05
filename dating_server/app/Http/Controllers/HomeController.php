@@ -71,7 +71,8 @@ class HomeController extends Controller{
 
     function edit(Request $request) {
         $id = $request->id;
-        $updated = ["full_name" => $request->full_name,
+        $updated = [
+        "full_name" => $request->full_name,
         "email" =>$request->email,
         "gender" => $request->gender,
         "interest" => $request->interest,
@@ -81,7 +82,7 @@ class HomeController extends Controller{
         "profile_picture" => $request->profile_picture,
         "bio" => $request->bio,
         "visible" => $request->visible];
-        $values = User::select(*)
+        $values = User::select("*")
                         ->where('id', $id)
                         ->update($updated);
 
