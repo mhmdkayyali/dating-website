@@ -4,7 +4,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
+
+body{
+    font-family: "barlow-regular";
+}
+
+@font-face {
+    font-family: "barlow-bold";
+    src: url("../assets/fonts/barlow.bold");
+}
+
+@font-face {
+    font-family: "barlow-regular";
+    src: url("../assets/fonts/barlow.regular.ttf");}
+
+@font-face {
+    font-family: "DancingScript-Regular";
+    src: url("../assets/fonts/DancingScript-Regular.otf");}
 
 .nav-bar{
     display: flex;
@@ -33,4 +50,18 @@
     margin-right: 30px;
     cursor: pointer;
 }
-  
+
+.home-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.header{
+    color: #FF607D;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: "DancingScript-Regular";
+}
